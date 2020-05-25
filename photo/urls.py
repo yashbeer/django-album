@@ -1,6 +1,7 @@
 from django.urls import path
+
 from . import views
 
 urlpatterns = [
-    path('', views.GalleryList.as_view(), name='index')
+    path('<int:photoid>', views.fetch, name='fetch'),
 ]

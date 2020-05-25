@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    'gallery',
+    'photo'
 ]
 
 MIDDLEWARE = [
@@ -54,7 +57,9 @@ ROOT_URLCONF = 'django-album.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            'django-album/templates'
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -99,6 +104,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+LOGIN_REDIRECT_URL = 'index'
+LOGOUT_REDIRECT_URL = 'index'
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
@@ -117,4 +124,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
+#STATIC_ROOT = '/home/ubuntu/environment/django-album/static/'
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+    '/home/ubuntu/environment/django-album/static/',
+]
+
+AWS_ACCESS_KEY_ID = 'AKIA3L2ZYQCXFNA4SIEM'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_DEFAULT_REGION = 'ap-south-1'
+AWS_STORAGE_BUCKET_NAME = 'django-album-project'
