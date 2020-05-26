@@ -50,3 +50,14 @@ button {
   font-family: "Source Sans Pro";
   cursor: pointer;
 }
+
+.errorlist {
+  text-decoration: none;
+  list-style: none;
+  color: red;
+  position: fixed;
+  bottom: 15px;
+  width: 26em;
+  line-height: 1.6;
+  padding: 5px;
+}

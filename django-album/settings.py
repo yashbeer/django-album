@@ -24,9 +24,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '17o+@+eo1uy047w-(sz1cw6wav(08ov@2^#s6f_t9c5!w_kl4u'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['08b6d768d96a4a689096b1aee3096d3a.vfs.cloud9.us-east-1.amazonaws.com']
+ALLOWED_HOSTS = ['herokuapp.com']
 
 # get environment variables
 def get_env(name, default=None, strict=False, func=None):
