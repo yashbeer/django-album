@@ -147,7 +147,7 @@ USE_TZ = True
 #STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(os.path.dirname(BASE_DIR), 'static')
+    os.path.join(BASE_DIR, 'static')
 ]
 
 AWS_ACCESS_KEY_ID = get_env('AWS_ACCESS_KEY_ID', '')
