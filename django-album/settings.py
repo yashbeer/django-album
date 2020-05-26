@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+from django.core.exceptions import ImproperlyConfigured
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -27,6 +28,25 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['08b6d768d96a4a689096b1aee3096d3a.vfs.cloud9.us-east-1.amazonaws.com']
 
+# get environment variables
+def get_env(name, default=None, strict=False, func=None):
+    """Get the environment variable or return exception"""
+
+    if strict and name not in os.environ:
+        msg = "*** Required environment variable '{}' not set.".format(name)
+        raise ImproperlyConfigured(msg)
+
+    value = os.environ.get(name, default)
+
+    if not value:
+        msg = "*** Required environment variable '{}' not set and has no default value".format(
+            name)
+        raise ImproperlyConfigured(msg)
+
+    if func:
+        return func(value)
+    else:
+        return value
 
 # Application definition
 
@@ -131,7 +151,7 @@ STATICFILES_DIRS = [
     '/home/ubuntu/environment/django-album/static/',
 ]
 
-AWS_ACCESS_KEY_ID = 'AKIA3L2ZYQCXFNA4SIEM'
-AWS_SECRET_ACCESS_KEY = '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'
+AWS_ACCESS_KEY_ID = get_env('AWS_ACCESS_KEY_ID', '')
+AWS_SECRET_ACCESS_KEY = get_env('AWS_SECRET_ACCESS_KEY', '')
 AWS_DEFAULT_REGION = 'ap-south-1'
 AWS_STORAGE_BUCKET_NAME = 'django-album-project'
