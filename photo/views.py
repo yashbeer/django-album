@@ -10,7 +10,7 @@ def fetch(request, photoid):
     s3 = boto3.resource('s3')
     
     try:
-        photo = Photo.objects.get(pk=photoid)
+        photo = Photo.objects.get(owner=request.user, pk=photoid)
         key = photo.name
         filetype = photo.filetype
     except Exception as e:
