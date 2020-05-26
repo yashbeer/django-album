@@ -41,7 +41,7 @@ body {
 }
 
 .gallery-container {
-    margin: 60px 20px;
+    margin: 0px 20px;
 }
 
 div.photo {
@@ -54,7 +54,6 @@ div.photo:hover {
 
 div.photo img {
   width: 100%;
-  height: auto;
 }
 
 .desc {
@@ -68,6 +67,7 @@ div.photo img {
 
 .responsive {
   padding: 0 6px;
+  margin: 6px 0;
   float: left;
   width: 24.99999%;
 }
@@ -89,4 +89,15 @@ div.photo img {
   content: "";
   display: table;
   clear: both;
+}
+
+.footer {
+  display: block;
+  clear: both;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer a {
+  text-decoration: none;
 }
