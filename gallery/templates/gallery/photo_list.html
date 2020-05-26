@@ -4,12 +4,21 @@
 <html>
 <head>
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="{% static 'css/main.css' %}">
 </head>
 <body>
     
-    <h1 class="title">Photo Gallery</h1>
+    <h1 class="title">
+      <a href="{% url 'index' %}">
+        <img src="{% static 'img/logo.png' %}" class="logo">
+      </a></h1>
     <a href="{% url 'logout' %}" class="logout">Logout</a>
+    
+    <div class="search">
+      <span class="material-icons searchicon">search</span>
+      <input type="search" id="q" placeholder="Search your photos" onsearch="make_search_request()" />
+    </div>
     
     <div class="gallery-container">
     {% for photo in photos %}
@@ -21,6 +30,8 @@
             <div class="desc">{{ photo.name }}</div>
           </div>
         </div>
+    {% empty %}
+      <p>Upload some photos.</p>
     {% endfor %}
     </div>
     
@@ -28,4 +39,14 @@
     
     
 </body>
+<script src="https://cdn.rawgit.com/khalidsalomao/simple-query-string/22cc5bbe/src/simplequerystring.min.js"></script>
+<script>
+function make_search_request(e) {
+    var q = document.getElementById("q").value;
+    var parsed = simpleQueryString.parse(location.search);
+    if(q) { parsed.q = q; } else { parsed.q = undefined };
+    var parsed_string = simpleQueryString.stringify(parsed);
+    location.search = parsed_string;
+}
+</script>
 </html>

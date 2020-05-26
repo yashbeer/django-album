@@ -1,0 +1,52 @@
+body {
+    /*font: font-style font-variant font-weight font-size/line-height font-family;*/
+    /*font: italic small-caps normal 16px/150% Arial, Helvetica, sans-serif;*/
+    font: normal 16px "Source Sans Pro";
+    margin: 0;
+    padding: 0;
+}
+
+.login-container {
+  background: #fff;
+  border: 1px solid #eaeaea;
+  border-radius: 4px;
+  overflow: hidden;
+  width: 28em;
+  min-width: 300px;
+  margin: 100px auto;
+  text-align: center;
+}
+
+.login-form {
+  margin: 50px auto;
+}
+
+.login-form p {
+  display: inline-block;
+  margin: 10px;
+  width: 90%;
+}
+
+.login-form label {
+  display: block;
+  position: relative;
+  left: -62px;
+  top: -2px;
+  color: #666;
+}
+
+.login-form input {
+  padding: 10px;
+}
+
+button {
+  padding: 10px 80px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background: #b7f178;
+  border: 1px solid #b7f178;
+  font-weight: bold;
+  color: #333;
+  font-family: "Source Sans Pro";
+  cursor: pointer;
+}

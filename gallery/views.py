@@ -9,7 +9,11 @@ from photo.models import Photo
 
 class GalleryList(LoginRequiredMixin, View):
     def get(self, request):
-        photos = Photo.objects.all()
+        q = self.request.GET.get("q")
+        if q:
+            photos = Photo.objects.filter(owner=request.user, name__icontains=q)
+        else:
+            photos = Photo.objects.filter(owner=request.user)
         
         page = request.GET.get('page', 1)
         paginator = Paginator(photos, 10)
